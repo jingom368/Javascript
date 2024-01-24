@@ -1,0 +1,8 @@
+{
+    "html": {
+        "snippets": {
+            "testing": "div{Hello World}",
+            "dvdv": "div>div>div>div"
+        }
+    }   
+}

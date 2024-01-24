@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+</head>
+
+<body>
+<div>
+    <span>현재 시간 : <span id="timeValue"></span>시</span>
+    <input type="button" onclick="handleClick()" value="시간변경" />
+</div>
+
+</body>
+<script>
+	window.onload = () => {
+    let time = 1;
+    let timeValue = document.querySelector('#timeValue')
+
+    const handleClick = () => {
+        let newTime;
+        if(time >= 12) newTime = 1;
+        else newTime = time + 1;
+        timeValue.innerHTML = newTime;
+        time = newTime
+    }
+}
+</script>
+</html>

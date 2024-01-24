@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+
+    const viewUsername = () => {
+        // console.log(document.FormTest.username.value);
+
+        let username0 = username.value; // username0 은 안 쓰임.
+        console.log(`username0 = ${username0}`);
+
+        let username1 = document.getElementById('username');
+        console.log(`username1 = ${username.value}`);
+
+        let username2 = document.querySelector('#username').value;
+        console.log(`username2 = ${username2}`);
+    }
+    
+</script>
+
+<form name = "FormTest">
+       
+    <input type="text" id="username" name="username" value="" >
+    <input type="button" value ="클릭" onclick="viewUsername()">
+
+</form>
+ 
+</body>
+</html>

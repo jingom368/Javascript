@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+    <ul>
+        <li>딸기</li><li id="my_li"><p>바나나1-1</p><p>바나나1-2</p></li><li><p>바나나2</p></li><li><p>바나나3</p></li><li>사과</li>
+    </ul>    
+
+    <script>
+        // my_li element를 중심으로 부모, 자식, 형제 노드를 탐색
+        // node : Text, Comment(주석). element
+
+        const my_li = document.getElementById('my_li');
+        document.write(' <br> ======  결과 출력 ====== <br>');
+
+        // 부모 : parentNode
+        const parentNode = my_li.parentNode;
+        document.write('부모 : ' + parentNode + '<br><br>');
+
+        // 자식 : firstChild, lastChild
+        const firstChildNode = my_li.firstChild;
+        const lastChildNode = my_li.lastChild;
+        document.write('첫번째 자식 : ' + firstChildNode + '<br>');
+        document.write('마지막 자식 : ' + lastChildNode + '<br><br>');
+
+        document.write('첫번째 자식 : ' + firstChildNode.nodeName + '<br>');
+        document.write('마지막 자식 : ' + lastChildNode.nodeName + '<br><br>');
+
+        // elm.nodeType == 1 --> Element Node
+        // elm.nodeType == 3 --> 텍스트 노드
+        // elm.nodeType == 9 --> 문서 객체
+        document.write('첫번째 자식 : ' + firstChildNode.nodeType + '<br>');
+        document.write('마지막 자식 : ' + lastChildNode.nodeType + '<br><br>');
+
+        document.write('첫번째 자식 : ' + firstChildNode.innerHTML + '<br>');
+        document.write('마지막 자식 : ' + lastChildNode.innerHTML + '<br><br>');
+
+        // 자식 노드 목록
+        const childNodes = my_li.childNodes;
+        document.write('자식노드 같이/목록 : ');
+        document.write(childNodes.length + '<br>');
+        for(let i=0; i<childNodes.length; i++){
+            document.write(childNodes[i].innerHTML + '<br>');
+        }
+
+        document.write('<br>');
+
+        // 형제 : previousSibling, nextSibling
+        const prevNode = my_li.previousSibling;
+        const nextNode = my_li.nextSibling;
+        document.write('이전 형제 : ' + prevNode.innerHTML + '<br>')
+        document.write('다음 형제 : ' + nextNode.innerHTML)
+
+        const newNode = document.createElement('p'); // <p></p>
+        newNode.textContent = '새로운 바나나'
+
+        my_li.insertBefore(newNode, lastChildNode); // 부모노드.inserBefore(삽입할 노드. 기준 노드)
+    </script>
+
+    <br>
+    <div id="elm1"></div>
+    <div id="elm2"></div>
+
+    <!-- <script>
+        let name = prompt("이름을 입력해 주세요.", "<br>홍길동<br>");
+        elm1.innerHTML = name;
+        elm2.textContent = name;
+    </script> -->
+
+    <br>
+    <div id="news">
+        <h1>주요 뉴스</h1>
+        <p>날씨가 추워졌습니다.</p>
+    </div>
+
+    <script>
+        document.write(news.textContent);
+    </script>
+
+</body>
+</html>

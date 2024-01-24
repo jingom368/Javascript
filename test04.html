@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<script>
+    const car = {
+        wheels: 4,
+        drive() {
+            console.log("drive...");
+        }
+    }
+
+    const bmw = {
+        color: "red",
+        navigation: 1
+    }
+
+    const benz = {
+        color: "black"
+    }
+
+    const audi = {
+        color: "blue"
+    }
+
+    bmw.__proto__ = car;
+    benz.__proto__ = car;
+    audi.__proto__ = car;
+
+    const BMW = function (color) {
+        this.color = color;
+    }
+
+    BMW.prototype.wheels = 4;
+    BMW.prototype.drive = function () {
+        console.log("운전하다...");
+    }
+
+    BMW.prototype.navigation = 1;
+    BMW.prototype.stop = function () {
+        console.log("정지하다...");
+    }
+
+    const x5 = new BMW('red');
+    const z5 = new BMW('blue');
+
+    console.log(x5.navigation);
+    console.log(x5.drive());
+    console.log(z5 instanceof BMW);
+
+    
+    class User {
+        constructor(name) {
+            this.name =name;
+        } 
+
+        sayHi() {
+            console.log(this.name);
+        }
+    }
+
+    let user = new User('John');
+    user.sayHi();
+
+    class User1 {
+        constructor(name) {
+            this.name = name;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            if (value.length < 2) {
+                console.log(("이름이 너무 짧습니다."));
+                return;
+            }
+            this._name = value;
+        }
+    }
+
+    let user1 = new User1("보라");
+    console.log((user1.name)); // 보라
+
+    user1 = new User1("");
+
+    class User2 {
+        
+        ['say'+'Hi']() {
+            console.log(("Hello"));
+        }
+    }
+
+    new User2().sayHi();
+
+</script>    
+
+</body>
+</html>

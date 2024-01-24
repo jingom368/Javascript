@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="toggle">toggle</button>
+    <div class="box" style="width:100px; height:100px; background: red;"></div>
+
+    <script>
+        var box = document.querySelector('.box');
+        var toggleBtn = document.querySelector('.toggle');
+
+        var toggle = (function () {
+            var isShow = false;
+
+            // 1.클로저를 반환
+            return function () {
+                box.style.display = isShow ? 'block' : 'none';
+                // 3. 상태 변경
+                isShow = !isShow;
+            };
+        })();
+
+        // 2. 이벤트 프로퍼티에 클로저를 한ㄹ당
+        toggleBtn.onclick = toggle;
+    </script>
+</body>
+</html>

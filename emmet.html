@@ -1,0 +1,97 @@
+<!-- 1. > : 자식 구조를 만들 떄 사용 -->
+div>ul>ul
+<div>
+    <ul>
+        <ul></ul>
+    </ul>
+</div>
+
+<!-- 2. + : 형제 구조를 만들 때 사용 -->
+div+div+h2
+<div></div>
+<div></div>
+<h2></h2>
+
+<!-- 3. ^ : 자식에서 부모로 올라갈 때 사용 -->
+div>h1>ul>li+span^ul
+<div>
+    <h1>
+        <ul>
+            <li></li>
+            <span></span>
+        </ul>
+        <ul></ul>
+    </h1>
+</div>
+
+<!-- 4. * : 여러개 반복할 때 사용 -->
+div>ul>li*5
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<!-- 5. () : 묶어서 사용, 곱하기할 때 사용 -->
+<div>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+<!-- 6. $ : $갯수 만큼 자릿수 넣기 -->
+<ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+</ul>
+
+<!-- $를 따로 쓰면 $를 입력한 부분별로 숫자가 입력된다. -->
+ul>li.item$*5^ul>li.sub$*3
+<ul>
+    <li class="item1"></li>
+    <li class="item2"></li>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+</ul>
+<ul>
+    <li class="sub1"></li>
+    <li class="sub2"></li>
+    <li class="sub3"></li>
+</ul>
+
+<!-- 숫자를 역순으로 쓰고 싶다면 $@-를 사용하면 된다. -->
+ul>li.item$@-*3
+<ul>
+    <li class="item3"></li>
+    <li class="item2"></li>
+    <li class="item1"></li>
+</ul>
+
+<!-- 시작 숫자를 지정하고 싶다면 $@3*3로 작성하면 된다. -->
+ul>li.item$@3*3
+<ul>
+    <li class="item3"></li>
+    <li class="item4"></li>
+    <li class="item5"></li>
+</ul>
+
+<!-- 7. # : 아이디 넣기 (#idname으로 입력하면 자동으로 div태그는 삽입된다.) -->
+#list-item div#list-item
+<div id="list-item"></div>
+
+<!-- 8. . : 클래스 넣기 (.classname 으로 입력하면 자동으로 div태그는 삽입된다.) -->
+.title div.title
+<div class="title"></div>

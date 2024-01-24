@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>클로저를 이용한 Counting</p>
+    <button id="increase">+</button>
+    <p id="count">0</p>
+    <script>
+        var increaseBtn = document.getElementById('increase');
+        var count = document.getElementById('count')
+
+        var increase = (function () {
+            // 카운트 상태를 유지하기 위한 자유 변수
+            var counter = 0;
+            // 클로저를 반환
+            return function () {
+                return ++counter;
+            };
+        }());
+
+        increaseBtn.onclick = function() {
+            count.innerHTML = increase();
+        };
+    </script>
+</body>
+</html>
